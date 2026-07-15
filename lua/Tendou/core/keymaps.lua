@@ -28,7 +28,7 @@ vim.keymap.set("n", "<C-c>", ":nohl<CR>", { desc = "Clear search hl", silent = t
 -- ==========================================
 -- Core / Editing
 -- ==========================================
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = "Format buffer" })
+vim.keymap.set("n", "<leader>f", require("Tendou.utils.format").run, { desc = "Format buffer" })
 
 -- prevent x delete from registering when next paste
 vim.keymap.set("n", "x", '"_x', opts)
