@@ -13,6 +13,20 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "move up in buffer with cursor 
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+-- LSP navigation
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "LSP: Go to definition" })
+vim.keymap.set("n", "<leader>gd", function()
+    vim.cmd("vsplit")
+    vim.lsp.buf.definition()
+end, { desc = "LSP: Definition in vertical split" })
+vim.keymap.set("n", "gD", function()
+    vim.cmd("tabnew")
+    vim.lsp.buf.definition()
+end, { desc = "LSP: Definition in new tab" })
+vim.keymap.set("n", "<C-o>", function()
+    vim.cmd("normal! <C-o>")
+end, { desc = "Jump back" })
+
 vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
 
